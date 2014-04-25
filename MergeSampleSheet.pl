@@ -20,7 +20,7 @@ while ( my $file = readdir(DIR) ) {
 		if ( $countFile == 1 ) { #the first file, use its first $skipLines lines as output header
 			print
 "$countFile: Loading $file. Its first $skipLines lines will be used as result header.\n";
-			open READ, "<$file" or die $!;
+			open READ, "<$dir/$file" or die $!;
 			while (<READ>) {
 				print RESULT $_;
 			}
@@ -29,7 +29,7 @@ while ( my $file = readdir(DIR) ) {
 		else { #Not the first file, discard its first $skipLines lines
 			print
 "$countFile: Loading $file. Its first $skipLines lines will be discarded.\n";
-			open READ, "<$file" or die $!;
+			open READ, "<$dir/$file" or die $!;
 			my $lineCount = 0;
 			while (<READ>) {
 				$lineCount++;

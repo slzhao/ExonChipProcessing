@@ -32,12 +32,13 @@ def main(argv):
 
 if __name__ == "__main__":
     files=main(sys.argv[1:])
-    pop_list=files[0].split(",")
+    pop_list = files[0].split(",")
     out_dir = files[1]
     print 'population: ', pop_list
     print 'output dir: ',out_dir
 
-    db_dir = "readin_1000G" #1000G vcf dataset
+
+    db_dir = "resources" #1000G vcf dataset
 
     white =['CEU', 'FIN', 'GBR', 'IBS', 'TSI']
     black = ['ASW','LWK','YRI']
@@ -58,7 +59,6 @@ if __name__ == "__main__":
         else:
             epop.append(race)
 
-    fam_lst =[]
 
     for i,pop in enumerate([wpop,bpop,hpop,epop]):
         if i==0: f='W'
@@ -66,15 +66,19 @@ if __name__ == "__main__":
         elif i==2: f="H"
         elif i==3: f='else'
 
+        fam_lst =[]
         with open(db_dir+"/integrated_call_samples.20101123.ped","rb") as famf:
             for item in famf:
                 item = item.rstrip().split()
                 if item[6] in pop:
                     fam_lst.append(item[:6])
 
-        print 'find: ',len(fam_lst),' samples'
+        print 'find: ',len(fam_lst),' samples in ',f
+        if len(fam_lst)==0: continue
+
         tped_f = open(out_dir+'/'+f+'_G1000.tped','wb')
         tfam_f = open(out_dir+'/'+f+'_G1000.tfam','wb')
+
 
         with open(db_dir+'/G1000.vcf','rb') as inf:
             pos = []
@@ -98,11 +102,16 @@ if __name__ == "__main__":
                         gt = ln[ipos].split(':')[0].split('|')
                         aa = ''
                         for (i,igt) in enumerate(gt):
-                            if i == 1: aa += " "
-                            if igt == '0': aa += all_1
-                            elif igt == '1': aa += all_2
-                            else: aa += '0'
-                            tped_f.write("\t"+aa)
+                            if i == 1: 
+                                aa += " "
+                            if igt == '0': # reference
+                                aa += all_1
+                            elif igt == '1': # alternate
+                                aa += all_2
+                            else: 
+                                aa += '0'
+
+                        tped_f.write("\t"+aa)
 
                 tped_f.write('\n')
 
