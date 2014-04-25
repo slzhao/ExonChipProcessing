@@ -40,7 +40,6 @@ The list of resources for 12V1_A exome chip:
 [g1k_HumanExome-12v1_A_SNPs.bim](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/g1k_HumanExome-12v1_A_SNPs.bim)|	38|Consistency1000G.sh|	1000G Overlapped SNP list
 [g1k_HumanExome-12v1_A_SNPs.fam](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/g1k_HumanExome-12v1_A_SNPs.fam)|	38|Consistency1000G.sh|	1000G Overlapped SNP list
 [dup_snp_pair](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/dup_snp_pair)	|37|ConsistencyDupSNP.sh|	Duplicated SNP list
-[g1k_overlap_w_data](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/g1k_overlap_w_data)	|38|Consistency1000G.sh|	PLINK file of 1000G data which only contains SNP overlapped with exome chip
 [1000G_ExomeChipOverlapVCF.zip](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/1000G_ExomeChipOverlapVCF.zip)	|39, 41|AlleleFreq1000G.sh, AlleleFreqExome.sh, vcf_to_ped.py|	VCF file of 1000G data which only contains SNP overlapped with exome chip
 [chr23_26.txt](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/chr23_26.txt)	|30, 34	|plink|list of SNPs from Chr X, Y and MT
 [integrated_call_samples.20101123.ped](https://github.com/slzhao/ExonChipProcessing/releases/download/resources.12V1_A/integrated_call_samples.20101123.ped)	|39|vcf_to_ped.py|	Downloaded from 1000G
