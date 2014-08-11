@@ -10,7 +10,7 @@ set -e
 echo "Exome dataset directory: "$exome_dir
 echo "dataset race file full path: "$exomeRace
 
-g1k_dir=resources
+g1k_dir=readin_1000G
 
 if [ -d exome ]; then
     rm -rf exome
